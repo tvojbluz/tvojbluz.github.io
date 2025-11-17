@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="rs">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device.width, initial-scale=1">
+
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description"
+          itemprop="about"
+          content="{{ config.description }}">
+    <link rel="stylesheet" href="{{ get_url(path='/style.css') | safe }}">
+</head>
+
+<body>
+    <div class="header">
+    <header>
+        <div class="header-logo">
+        <div class="header-logo-title header-logo-title-left">tvoj</div>
+        <a href="{{ get_url(path='/') | safe }}">
+            <img src="{{ get_url(path='img/tvojbluz-transparent.png') | safe }}"
+                 class="site-logo"
+                 alt="Logo"
+                 width="300px"
+                 height="auto">
+        </a>
+        <div class="header-logo-title header-logo-title-right">bluz</div>
+        </div>
+        <h3 class="content content-header-refs">
+            <a href="{{ get_url(path='/blog') | safe }}">Blog</a>
+            |
+            <a href="{{ get_url(path='/links') | safe }}">Linkovi</a>
+            |
+            <a href="{{ get_url(path='/about') | safe }}">O nama</a>
+        </h3>
+    </header>
+    </div>
+    <section class="section">
+        <div class="container">
+            {% block content %} {% endblock content %}
+        </div>
+    </section>
+</body>
+
+</html>
